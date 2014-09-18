@@ -258,8 +258,20 @@ Use the call method
 to access the speak method
 for cat2. 
 
+var cat = {
+  name: "billy",
+  type: "awesome",
+  owner:"I am my own master",
+  speak: function (){console.log(this.name + this.type + this.owner)}
 
+}
 
+var cat2 = {
+  name: "chica",
+  type: "fiesty",
+  owner:"I am my own master",
+  speak: cat.speak.call(cat2)
+}
 
 
 

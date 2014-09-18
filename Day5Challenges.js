@@ -19,15 +19,31 @@ var allData = [];
 //if the input is an object, console.log the key value pairs
 //like so 'key:value'
 
+function logIt (userData){	if (typeof userData === "string"){
+	console.log(userData);
+} else {
+	if (typeof userData === "object"){
+		for (var key in userData){
+			console.log(key + ": " + userData[key]);
+			}
+		}
+	}
+}
+
 //now write a function called getInput that takes two args
 //options and the callback
 //have this function push options into the allData array
 //and then run the callback function with options as its only
 //argument
+function getInput (options,callback) {
+allData.push(options);
+callback(options);
+}
 
 // When we call the getInput function, we pass logIt as a parameter.
 // So logStuff will be the function that will called back
 // (or executed) inside the getInput function
+
 
 // getInput ({name:"Will", speciality:"Busting a move"}, logIt);
 //  name: Will
@@ -44,13 +60,31 @@ var allData = [];
 //write a function named range that takes two numbers
 //and returns an array of the numbers populated with
 //the range from the first to the second
+function range(num1, num2){
+	var arr = [];
+	for (var i = num1; i <= num2; i++) {
+		arr.push(i);
+	}
+	return arr;
+}
 
 //now create a function called sum that takes an
 // array and returns the sum of that array
+function sum (arr) {
+	var total = 0;
+	arr.forEach( function(x) {
+		total += x;}
+	);
+	return total;
+}
 
 //now chain together sum() and range() so that
 //you have a function that calculates the sum of all
 // numbers in the range
+function sumRange (num1, num2){
+	var ran = range(num1,num2);
+	return sum(ran);
+}
 
 
 //So now that we've seen we can chain methods and 
@@ -79,10 +113,17 @@ var name = 'Will';
 write a function that takes a series 
 of arguments and returns an arr
 
+function toArray (){
+	return Array.prototype.slice.call(arguments, 0);
+}
+
 toArray(1,2,3,4,5,6) => [1,2,3,4,5,6]
+
 =================================================
 write a function that return the type of
 the given argument
+
+function type(arg){return typeof arg;}
 
 type({}) => 'object'
 type([]) => 'array'
@@ -91,6 +132,12 @@ type([]) => 'array'
 =================================================
 write a function called applied that mimics the
 functionality of apply (without the context part)
+
+function applied (callback, arr){
+	for (var i = 0; i < arr.length; i++){
+		callback(arr[i]);
+	}
+}
 
 applied(func, [arr]) => func(arr1,arr2,arr3)
 =================================================
@@ -112,9 +159,24 @@ object to the first one
 var obj1 = {'first': 1, 'second': 2},
 obj2 = {'another': 'one', 'surprise': 'combined'}
 extend(obj1, obj2) => {'first': 1, 'second': 2, 'another': 'one', 'surprise': 'combined'}
+
+function extend (obj1, obj2){ for (var key in obj2){
+obj1[key] = [key]
+}}
 =================================================
 write a function that takes a function and only
 allows that function to be called once. 
+function once(fn, context) { 
+	var result;
+	return function() { 
+		if(fn) {
+			result = fn.apply(context || this, arguments);
+			fn = null;
+		}
+		return result;
+	};
+}
+
 
 =================================================
 (EXTRA CREDIT)

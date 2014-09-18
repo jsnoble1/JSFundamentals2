@@ -58,7 +58,7 @@ var otherWaysToAdd =[]; //fill out later
 //create an array named recipe and add the steps, in order to make your favorite
 //food. Use different methods to do so.
 =================================================
-
+var recipe = ["get bread", "get peanut butter and jelly", "put them together", "feast!"];
 //how to access values and indices to an array
 =================================================
 var accessValues = ['bracket-notation', 'bracket-notation with variable'];
@@ -66,13 +66,13 @@ var otherWaysToAccess =[]; //fill out later
 
 //access the first step of your recipe using bracket notation. 
 =================================================
-
+recipe[0]
 //access the last step of your recipe use a variable. 
 =================================================
-
+recipe[recipe.length -1];
 //access the second to last step of your recipe.
 =================================================
-
+recipe[recipe.length -2];
 
 //how to add values to objects
 =================================================
@@ -90,16 +90,16 @@ var otherWaysToAccess = [];
 //Failed property lookups always evaluate to the value undefined
 =================================================
 var myObj = { one: 1, two: 2, three: 3};
-myObj['two'] => ??
-myObj[one] => ?? //what does no quotes mean?
+myObj['two'] => ?? // it equals 2
+myObj[one] => ?? //what does no quotes mean? // reference error, you need quotes. keys are strings
 
 //You can't use dot notation with variables or special characters
 =================================================
 var myOtherObj = { loves : 'candy', likes: 'fries' }
 var likes = 'loves';
 
-myOtherObj['likes']; => ??
-myOtherObj.likes => ??
+myOtherObj['likes']; => ?? //fries
+myOtherObj.likes => ??	//fries
 
 What about weird symbols in property names?
 
@@ -107,9 +107,15 @@ What about weird symbols in property names?
 //create an object called myCatInfo
 //add some properties and values using bracket notation
 =================================================
+var myCatInfo = {};
+myCatInfo["color"] = "blue";
+myCatInfo["talk"] = "meoooowwww";
 
 //now recreate myCatInfo using dot notation (do not copy/paste!)
 =================================================
+var myCatInfo = {};
+myCatInfo.color = "blue";
+myCatInfo.talk = "meoooooww";
 
 //some weird things
 =================================================
@@ -128,15 +134,15 @@ for(var k in obj){
 //What is an object/array literal?
 =================================================
 var obj1 = {};
-obj['x']       = 9;
-obj['~/ [."4'] = 'cat';
+obj1['x']       = 9;
+obj1['~/ [."4'] = 'cat';
 
 var obj2 = {
     'x'        : 9,
     '~/ [."4'  : 'cat'
 };
 
-obj1 === obj2; => ??
+obj1 === obj2; => ?? false
 
 
 
@@ -155,7 +161,7 @@ Objects, use for in loop
 var obj = {hello: 'goodbye', up : 'down', blue : 'red', 'weird-symbol': 'need quotes'}
 
 for(var key in obj) {
-  console.log(obj[key]); //why don't we need quotes??
+  console.log(obj[key]); //why don't we need quotes?? key is a parameter, a placeholder for the actual value
 }
 
 //Since arrays are objects...
@@ -174,7 +180,7 @@ log(arr[ 0 ]); // logs 'cat'
 for(var k in arr){
   console.log(k); // logs 'x', '0' 
 }
-console.log(arr.length);    // logs ??
+console.log(arr.length);    // logs 1
 
 You might expect length to hold 2, since there's also a property at 
 the key 'x'. But remember: non-integer keys do not count toward the length value.

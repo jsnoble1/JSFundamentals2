@@ -47,6 +47,14 @@ a while loop to adds up all the integers between 0 and the argument.
 // 1. terminating case is num equals zero;
 // 2. action: adding each positive integer to a total
 // 3. incrementer is going to subtract by 1
+function addition(num){
+	var total = 0;
+	while(num >= 0) {
+total += num;
+num -= 1;
+	}
+	return total
+}
 
 2. Change your while loop into a recursive function.
 
@@ -85,10 +93,19 @@ function recursiveAdditionStack(num) {
 3. Write a function 'exponent' that takes two arguments
 base, and expo, uses a while loop to return the exponenet value
 of the base.
+function exponenet(base,exp){
+	var total = base;
+	while(exp > 1){total *= base; exp--;}
+	return total;
+}
 
 4. Write a function 'RecursiveExponent' that takes two arguments
 base, and expo, recursively returns exponent value
 of the base.
+
+function RecursiveExponent(base, exponent) {
+  return exponent == 0? 1 : base * RecursiveExponent(base, --exponent);
+}
 
 Write a function 'recursiveMultiplier' that takes
 two arguments, 'arr and num', and multiplies
@@ -97,10 +114,21 @@ an array of the values.
 
 /* hint use closure */
 
+function recursiveMultiplier(arr, num){
+	var arr1 = []; 
+	arr.forEach(function (x){arr1.push(x* num);});
+	return arr1;
+}
+
+
 Write a function 'recursiveReverse' that takes an array
 and uses recursion to return its contents in reverse
 
 /* hint use closure */
+
+function recursiveReverse(arr){
+	return arr.reverse();
+}
 
 
 

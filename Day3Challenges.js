@@ -1,9 +1,9 @@
 //How will the following evaluate
 ===============================================================
-false && true || true
-false && (true || true)
-true ? console.log(3) : console.log(2);
-false ? console.log(3) : console.log(2);
+false && true || true >>>> true
+false && (true || true) >>>> false
+true ? console.log(3) : console.log(2); >>>>3
+false ? console.log(3) : console.log(2);>>>>>2
 
 //Some examples of logical operators in action
 ===============================================================
@@ -33,7 +33,13 @@ function isAdult(age) {
 //This function will return a number
 //[input: 5]
 //[output: 10]
-
+function sum (num){
+	var total = 0;
+for (var i = 0; i <= (num-1); i++){
+	total += i;
+}
+ return total;
+}
 //Write a range function that takes a start and an end value
 //and returns an array containing all number from start up to
 //and including end
@@ -42,18 +48,31 @@ function isAdult(age) {
 //[input: 3, 8]
 //[output: [3,4,5,6,7,8]]
 
+function range (num1, num2){
+	var result = [];
+	for (var i = num1; i <= num2; i++){
+		result.push(i);
+	}
+return result;
+}
+
 //Easy stuff right? How about making a function that takes
 //two numbers, a base and exponent and returns the result
 =============================================================
 //This function will return a number
 //[input: 2, 5]
 //[output: 32]
+function exponent(num1, num2){return Math.pow(num1, num2);}
 
 //create a function named 'arrayCounter' that takes in a parameter which
 // is an array. The function must return the length of an array passed in
 // or 0 if a 'string', 'number' or 'undefined' value is passed in.
 ==============================================================
 //[hint: try using logical operators in your function]
+function arrayCounter(arr){
+	if (Array.isArray[arr]) {console.log(arr.length)};
+	else {console.log(0);}
+}
 
 
 //Type conversions

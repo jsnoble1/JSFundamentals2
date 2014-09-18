@@ -6,6 +6,12 @@ var famous = ['alex smith', 'amy whinehouse',
 'cameron diaz', 'brad pitt', 'ashton kutcher', 'mark whalberg',
 'morgan freeman', 'mila kunis'];
 
+function loop (arra) {
+  arra.forEach(function (x){
+    if (x === 'ashton kutcher'){console.log(x);}
+    else if (x === 'mila kunis'){console.log(x);}
+  });}
+
 2. "Loop through the object POLITICAL and console.log first the
 VALUE then the KEY";
 
@@ -13,8 +19,16 @@ var political = {secretary of state: 'hillary clinton',
  potus: 'barack obama', flotus: 'michelle obama', vice prez: 'joe biden'
  governerOfCalifornia: 'jerry brown'};
 
+ function pol (obj){  for (var key in obj){
+console.log(key +": " + obj[key]);
+ }}
 3. "Loop through the political object and add the values to the famous array"
 
+ function objarr (obj){
+    for (var key in obj){
+      famous.push(obj[key]);
+      }
+    }
 
 4. "Take the array digits and place each value into an empty object where
 The object keys will be the index numbers of DIGITS and the values 
@@ -25,22 +39,37 @@ example:
 var digits = [0, 1, 2, 3, 4, 5]
 var newDigits = {} ======> {0: 0, 1: 2, 2: 4, 3: 6, 4: 8, 5: 10};
 
+  function dig (array){
+      for (var i = 0; i < array.length; i++){
+        newDigits[i] = i * 2;
+      }
+  }
+
 5. "Without using a loop, take the 2nd and 3rd array values out of 
 FRIENDS and push it to the array ENEMIES"
 
 var friends = ['albrey', 'will', 'bianca', 'abe'];
 var enemies = [];
 
+var nam = friends.splice(1,2);
+enemies.push(nam);
+
 6. "Join the array friends AND the array enemies into an string with 
 the variable name 'frenemies'" 
+
+var frenemies = friends.concat(enemies).toString();
 
 7. 'Loop through the array scramble and through each iteration take out 
 the FIRST and LAST value, and store it into the lovepoem array. then
 turn the values in the lovepoem array into a string.'
 
-var scramble: ['roses', 'red', 'are', 'bacon', 'crispy', 'i', 'you'
-,'love', 'and', 'is', 'blue', 'violets', 'are']
+var scramble = ['roses', 'red', 'are', 'bacon', 'crispy', 'i', 'you'
+,'love', 'and', 'is', 'blue', 'violets', 'are'];
 var lovepoem = [];
+
+for (var i = 0; i < scramble.length; i++)
+{lovepoem.push(scramble.shift() + scramble.pop())}
+console.log(lovepoem.toString());
 
 
 
@@ -56,21 +85,22 @@ var destinysChild = ['Kelly Rowland', 'Michelle Williams', 'Beyonce Knowles'];
 //Return the last item in a multi-item array and save it in a
 //new variable called star
 =================================================
-
+var star = destinysChild[2];
 
 //Now add Beyonces sister Solange to star using native methods
 =================================================
-
+star.push("Solange");
 
 //Now remove Beyonce using native methods so that Beyonce
 //is returned and  Solange is the only value in star
 =================================================
-
+star.shift();
 
 //Let's check if star and destinysChild are arrays using
 //the native array method Array.isArray(obj);
 =================================================
-
+Array.isArray(star);
+Array.isArray(destinysChild);
 //control flow
 =================================================
 0. The above are examples of Straight Control Flow, where code
